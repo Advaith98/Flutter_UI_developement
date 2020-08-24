@@ -13,7 +13,18 @@ class Body extends StatelessWidget {
     return Column(
       children: <Widget>[
         Categories(),
-        RecipeBundleCard(),
+        Expanded(
+            child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: SizeConfig.defaultSize * 2),
+          child: GridView.builder(
+              itemCount: recipeBundles.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 1,
+                mainAxisSpacing: 20,
+                childAspectRatio: 1.65,
+              ),
+              itemBuilder: (context, index) => RecipeBundleCard()),
+        )),
       ],
     );
   }
